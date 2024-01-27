@@ -1,0 +1,32 @@
+.cont {
+  display: flex;
+  max-width: 100vw;
+  flex-wrap: wrap;
+  margin-left: 11rem;
+}
+
+.place {
+  display: flex;
+  flex-direction: column;
+  width: 25%;
+  margin: 1rem;
+}
+
+.placeimg {
+  width: 100%;
+  height: 20rem;
+  margin-bottom: 2rem;
+}
+
+.info {
+  display: flex;
+  flex-direction: column;
+  padding: 1.5rem;
+}
+
+.readmore {
+  color: green;
+  border-color: none;
+  border-width: 0;
+  background-color: white;
+}

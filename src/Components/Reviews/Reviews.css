@@ -1,0 +1,57 @@
+.mainCont {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.reviewCard {
+  margin-top: 6rem;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  padding: 2rem;
+  width: 40%;
+  box-shadow: 1rem 1rem 3rem #d7cccc;
+  border-radius: 0.5rem;
+  transition: box-shadow 1s ease-out;
+}
+
+.reviewCard:hover {
+  box-shadow: 1rem 1rem 3rem #878080;
+}
+
+.image {
+  height: 10rem;
+  width: 10rem;
+  border-radius: 50%;
+}
+
+.arrows {
+  display: flex;
+  justify-content: space-between;
+}
+
+.arrowsStyle {
+  color: #12006e;
+  cursor: pointer;
+}
+
+.button {
+  background-color: #b67cec;
+  border-width: 0;
+  padding: 0.25rem;
+  margin: 1rem;
+  width: 7rem;
+  height: 2rem;
+  border-radius: 0.3rem;
+  font-size: 0.9rem;
+  transition: all 0.3s ease-out;
+}
+
+.button:hover {
+  background-color: #460087;
+  color: #dfdfdf;
+  height: 2.1rem;
+  width: 7.1rem;
+}
