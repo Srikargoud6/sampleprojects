@@ -1,7 +1,8 @@
-import React from "react";
+import React, { useState } from "react";
 import Question from "./Question";
 import "bootstrap/dist/css/bootstrap.min.css";
 import "./Questions.css";
+import { MdDarkMode, MdLightMode } from "react-icons/md";
 
 const questions = [
   {
@@ -25,10 +26,18 @@ const questions = [
     ans: "Lorem ipsum dolor sit amet consectetur adipisicing elit. Ullam molestiae harum voluptas ipsum maiores provident culpa optio quo nobis itaque, corrupti perspiciatis dolore facilis ipsam illo rem similique accusantium ratione!",
   },
 ];
-
 const Questions = () => {
+  const [dark, setDark] = useState(false);
   return (
-    <div className="mainCont">
+    <div className="mainCont" id={dark ? "light" : "dark"}>
+      {dark ? (
+        <MdLightMode className="theme" onClick={() => setDark(!dark)} />
+      ) : (
+        <MdDarkMode
+          className="theme text-light"
+          onClick={() => setDark(!dark)}
+        />
+      )}
       <div className="questions">
         <h1 className="text-center">FAQ</h1>
         {questions.map((ques) => {

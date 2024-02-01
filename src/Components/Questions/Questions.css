@@ -1,8 +1,17 @@
 .mainCont {
   display: flex;
+  flex-direction: column;
   justify-content: center;
   align-items: center;
+  padding: 2rem;
+}
+
+#light {
   background-color: #cbffff;
+}
+
+#dark {
+  background-color: #000000;
 }
 
 .questions {
@@ -34,6 +43,12 @@ h5 {
 
 .icon {
   font-size: 1.5rem;
+  cursor: pointer;
+}
+
+.theme {
+  margin-left: auto;
+  font-size: 2rem;
   cursor: pointer;
 }
 
