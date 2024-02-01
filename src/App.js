@@ -9,38 +9,42 @@ import { Link, Route, Routes } from "react-router-dom";
 function App() {
   return (
     <div>
-      <main>
-        <nav className="mainCont">
-          <Link to="/">
-            <div className="cont">
-              <h3>Birthday reminder</h3>
-            </div>
-          </Link>
-          <Link to="/travel">
-            <div className="cont">
-              <h3>Travel</h3>
-            </div>
-          </Link>
-          <Link to="/reviews">
-            <div className="cont">
-              <h3>Reviews</h3>
-            </div>
-          </Link>
-          <Link to="/questions">
-            <div className="cont">
-              <h3>Questions</h3>
-            </div>
-          </Link>
-        </nav>
-      </main>
-      <Routes>
-        <Route path="/" element={<BrithdayReminder />} />
-        <Route path="/travel" element={<Travel />} />
-        <Route path="/reviews" element={<Reviews />} />
-        <Route path="questions" element={<Questions />} />
-      </Routes>
+      <Questions />
     </div>
   );
 }
 
 export default App;
+
+{
+  /* <main>
+<nav className="mainCont">
+  <Link to="/">
+    <div className="cont">
+      <h3>Birthday reminder</h3>
+    </div>
+  </Link>
+  <Link to="/travel">
+    <div className="cont">
+      <h3>Travel</h3>
+    </div>
+  </Link>
+  <Link to="/reviews">
+    <div className="cont">
+      <h3>Reviews</h3>
+    </div>
+  </Link>
+  <Link to="/questions">
+    <div className="cont">
+      <h3>Questions</h3>
+    </div>
+  </Link>
+</nav>
+</main>
+<Routes>
+<Route path="/" element={<BrithdayReminder />} />
+<Route path="/travel" element={<Travel />} />
+<Route path="/reviews" element={<Reviews />} />
+<Route path="questions" element={<Questions />} />
+</Routes> */
+}
