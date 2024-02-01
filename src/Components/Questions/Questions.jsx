@@ -29,14 +29,14 @@ const questions = [
 const Questions = () => {
   const [dark, setDark] = useState(false);
   return (
-    <div className="mainCont" id={dark ? "light" : "dark"}>
+    <div className="mainCont" id={dark ? "dark" : "light"}>
       {dark ? (
-        <MdLightMode className="theme" onClick={() => setDark(!dark)} />
-      ) : (
-        <MdDarkMode
+        <MdLightMode
           className="theme text-light"
           onClick={() => setDark(!dark)}
         />
+      ) : (
+        <MdDarkMode className="theme" onClick={() => setDark(!dark)} />
       )}
       <div className="questions">
         <h1 className="text-center">FAQ</h1>
