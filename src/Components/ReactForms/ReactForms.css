@@ -1,0 +1,30 @@
+.mainCont {
+  display: flex;
+  justify-content: center;
+}
+
+.formCont {
+  background-color: #fdf4e5;
+  padding: 2rem;
+  margin-top: 4rem;
+  margin-bottom: 4rem;
+}
+
+.inputDiv {
+  display: flex;
+  justify-content: space-between;
+  padding: 1rem;
+}
+
+.buttonn {
+  text-align: center;
+}
+
+.label {
+  margin-right: 1rem;
+}
+
+.inputField {
+  background-color: #def0fd;
+  border-width: 0;
+}
