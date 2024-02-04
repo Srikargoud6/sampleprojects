@@ -5,11 +5,12 @@ import Travel from "./Components/Travel/Travel";
 import Questions from "./Components/Questions/Questions";
 import Reviews from "./Components/Reviews/Reviews";
 import { Link, Route, Routes } from "react-router-dom";
+import ReactForms from "./Components/ReactForms/ReactForms";
 
 function App() {
   return (
     <div>
-      <Questions />
+      <ReactForms />
     </div>
   );
 }
