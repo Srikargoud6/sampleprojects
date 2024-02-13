@@ -5,6 +5,7 @@ import "bootstrap/dist/css/bootstrap.min.css";
 const ReactForms = () => {
   // const [userName, setName] = useState("");
   // const [email, setEmail] = useState("");
+
   const [person, setPerson] = useState({ userName: "", email: "", age: "" });
   const [people, setPeople] = useState([]);
 
