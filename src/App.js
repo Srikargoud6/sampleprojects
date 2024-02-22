@@ -6,11 +6,12 @@ import Questions from "./Components/Questions/Questions";
 import Reviews from "./Components/Reviews/Reviews";
 import { Link, Route, Routes } from "react-router-dom";
 import ReactForms from "./Components/ReactForms/ReactForms";
+import Axios from "./Components/Axios/Axios";
 
 function App() {
   return (
     <div>
-      <ReactForms />
+      <Axios />
     </div>
   );
 }
