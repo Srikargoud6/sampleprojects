@@ -1,6 +1,7 @@
 import React from "react";
 import axios from "axios";
 import { useState } from "react";
+import "bootstrap/dist/css/bootstrap.min.css";
 
 const Axios = () => {
   const [query, setQuery] = useState("");
@@ -15,12 +16,14 @@ const Axios = () => {
     const res = await axios.get(
       `https://api.tvmaze.com/search/shows?q=${query}`
     );
-
-    console.log(res);
+    setList(res.data);
+    setQuery("");
+    // console.log(res.data[0].show.name);
+    //console.log(res.data[0].show.image.original);
   };
 
   return (
-    <div>
+    <div className="d-flex flex-column align-items-center m-5">
       <form onSubmit={handleSubmit}>
         <input
           type="text"
@@ -33,6 +36,16 @@ const Axios = () => {
           Search
         </button>
       </form>
+      <main className="d-flex flex-wrap">
+        {list.map((tv, id) => {
+          return (
+            <div className="m-2">
+              <img src={tv.show.image.medium} alt={tv.show.name}></img>
+              <p key={id}>{tv.show.name}</p>
+            </div>
+          );
+        })}
+      </main>
     </div>
   );
 };
