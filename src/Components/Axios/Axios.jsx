@@ -1,7 +1,9 @@
 import React from "react";
 import axios from "axios";
 import { useState } from "react";
+import { FaSearch } from "react-icons/fa";
 import "bootstrap/dist/css/bootstrap.min.css";
+import "./Axios.css";
 
 const Axios = () => {
   const [query, setQuery] = useState("");
@@ -16,7 +18,14 @@ const Axios = () => {
     const res = await axios.get(
       `https://api.tvmaze.com/search/shows?q=${query}`
     );
-    setList(res.data);
+
+    const res1 = res.data;
+    const results = res1.filter((tv) => {
+      return (
+        query && tv.show.image && tv.show.name.toLowerCase().includes(query)
+      );
+    });
+    setList(results);
     setQuery("");
     // console.log(res.data[0].show.name);
     //console.log(res.data[0].show.image.original);
@@ -28,12 +37,13 @@ const Axios = () => {
         <input
           type="text"
           name="searchQuery"
-          placeholder="Enter TV show name"
+          placeholder="Type to search..."
           value={query}
           onChange={handleChange}
+          className="search"
         />
-        <button type="submit" onClick={handleSubmit}>
-          Search
+        <button type="submit" onClick={handleSubmit} className="buton">
+          <FaSearch />
         </button>
       </form>
       <main className="d-flex flex-wrap">

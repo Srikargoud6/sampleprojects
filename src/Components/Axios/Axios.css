@@ -1,0 +1,15 @@
+.buton {
+  border-width: 0;
+  background-color: #faebd7;
+  padding: 0.25rem;
+  border-top-right-radius: 0.3rem;
+  border-bottom-right-radius: 0.3rem;
+}
+
+.search {
+  border-width: 0;
+  background-color: #faebd7;
+  padding: 0.25rem;
+  border-top-left-radius: 0.3rem;
+  border-bottom-left-radius: 0.3rem;
+}
