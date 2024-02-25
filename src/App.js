@@ -7,11 +7,12 @@ import Reviews from "./Components/Reviews/Reviews";
 import { Link, Route, Routes } from "react-router-dom";
 import ReactForms from "./Components/ReactForms/ReactForms";
 import Axios from "./Components/Axios/Axios";
+import UserList from "./Components/UserList/UserList";
 
 function App() {
   return (
     <div>
-      <Axios />
+      <UserList />
     </div>
   );
 }

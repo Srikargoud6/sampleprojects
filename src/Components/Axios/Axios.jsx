@@ -33,7 +33,7 @@ const Axios = () => {
 
   return (
     <div className="d-flex flex-column align-items-center m-5">
-      <form onSubmit={handleSubmit}>
+      <form onSubmit={handleSubmit} className="searchbar">
         <input
           type="text"
           name="searchQuery"
@@ -46,6 +46,17 @@ const Axios = () => {
           <FaSearch />
         </button>
       </form>
+      {/* <div className="autocomplete">
+        {list
+          .filter((item) => {
+            const searchTerm = query.toLowerCase();
+            const showName = item.show.name;
+            return searchTerm && showName.startsWith(searchTerm);
+          })
+          .map((item) => {
+            return <p>{item.show.name}</p>;
+          })}
+      </div> */}
       <main className="d-flex flex-wrap">
         {list.map((tv, id) => {
           return (

@@ -3,7 +3,11 @@
   background-color: #faebd7;
   padding: 0.25rem;
   border-top-right-radius: 0.3rem;
-  border-bottom-right-radius: 0.3rem;
+  width: 2rem;
+}
+
+.searchbar {
+  width: 22rem;
 }
 
 .search {
@@ -11,5 +15,14 @@
   background-color: #faebd7;
   padding: 0.25rem;
   border-top-left-radius: 0.3rem;
-  border-bottom-left-radius: 0.3rem;
+  width: 20rem;
+}
+
+.autocomplete {
+  display: flex;
+  flex-direction: column;
+  width: 22rem;
+  background-color: aqua;
+  margin: 0;
+  align-items: start;
 }

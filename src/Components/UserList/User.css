@@ -1,0 +1,11 @@
+.image {
+  border-radius: 50%;
+  height: 10rem;
+  width: 10rem;
+}
+
+.link {
+  text-decoration: none;
+  color: #5050b0;
+  font-size: 2rem;
+}
