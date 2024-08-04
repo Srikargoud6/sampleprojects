@@ -7,7 +7,7 @@ const app = express();
 // });
 
 app.get("/", (req, res) => {
-  res.send("This is a home page");
+  res.send("This is a homie page");
 });
 
 app.get("/r/:subreddit", (req, res) => {
@@ -18,6 +18,14 @@ app.get("/r/:subreddit", (req, res) => {
 
 app.get("/about", (req, res) => {
   res.send("This is an about page");
+});
+
+app.get("/search", (req, res) => {
+  const { q } = req.query;
+  if (!q) {
+    res.send("<h3>Nothing found if nothing searched</h3>");
+  }
+  res.send(`<h3>Search results for ${q}</h3>`);
 });
 
 app.get("*", (req, res) => {
