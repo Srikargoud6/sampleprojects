@@ -2,10 +2,18 @@ const express = require("express");
 
 const app = express();
 
+const redditData = require("./data.json");
+
 app.set("view engine", "ejs");
 
 app.get("/", (req, res) => {
   res.render("home");
+});
+
+app.get("/r/:subreddit", (req, res) => {
+  const { subreddit } = req.params;
+  const data = redditData[subreddit];
+  res.render("reddit", { ...data });
 });
 
 app.get("/random", (req, res) => {
