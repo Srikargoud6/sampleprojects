@@ -20,4 +20,13 @@ app.get("/comments", (req, res) => {
   res.render("index", { comments });
 });
 
+app.get("/comments/new", (req, res) => {
+  res.render("new");
+});
+
+app.post("/comments", (req, res) => {
+  comments.push(req.body);
+  res.send("IT WORKED!!");
+});
+
 app.listen("4000", () => console.log("listening on port: 4000"));
