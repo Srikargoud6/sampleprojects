@@ -9,7 +9,7 @@ app.use(express.json());
 app.use(express.static("public"));
 app.use(methodOverride("_method"));
 
-const comments = [
+let comments = [
   { id: crypto.randomUUID(), userName: "Jack", comment: "lol" },
   { id: crypto.randomUUID(), userName: "Jill", comment: "great" },
   { id: crypto.randomUUID(), userName: "Jade", comment: "nice pic" },
@@ -49,6 +49,12 @@ app.patch("/comments/:id", (req, res) => {
 app.post("/comments", (req, res) => {
   const { userName, comment } = req.body;
   comments.push({ userName, comment, id: crypto.randomUUID() });
+  res.redirect("/comments");
+});
+
+app.delete("/comments/:id", (req, res) => {
+  const { id } = req.params;
+  comments = comments.filter((c) => c.id !== id);
   res.redirect("/comments");
 });
 
