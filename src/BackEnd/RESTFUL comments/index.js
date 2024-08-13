@@ -1,19 +1,21 @@
 const express = require("express");
 const app = express();
+const methodOverride = require("method-override");
+
+app.set("view engine", "ejs");
 
 app.use(express.urlencoded({ extended: true }));
 app.use(express.json());
 app.use(express.static("public"));
-
-app.set("view engine", "ejs");
+app.use(methodOverride("_method"));
 
 const comments = [
-  { id: 1, userName: "Jack", comment: "lol" },
-  { id: 2, userName: "Jill", comment: "great" },
-  { id: 3, userName: "Jade", comment: "nice pic" },
-  { id: 4, userName: "Judy", comment: "awesome" },
-  { id: 5, userName: "Justin", comment: "congrats" },
-  { id: 6, userName: "Jayson", comment: "bravo" },
+  { id: crypto.randomUUID(), userName: "Jack", comment: "lol" },
+  { id: crypto.randomUUID(), userName: "Jill", comment: "great" },
+  { id: crypto.randomUUID(), userName: "Jade", comment: "nice pic" },
+  { id: crypto.randomUUID(), userName: "Judy", comment: "awesome" },
+  { id: crypto.randomUUID(), userName: "Justin", comment: "congrats" },
+  { id: crypto.randomUUID(), userName: "Jayson", comment: "bravo" },
 ];
 
 app.get("/comments", (req, res) => {
@@ -26,12 +28,27 @@ app.get("/comments/new", (req, res) => {
 
 app.get("/comments/:id", (req, res) => {
   const { id } = req.params;
-  const comment = comments.find((c) => c.id === parseInt(id));
+  const comment = comments.find((c) => c.id === id);
   res.render("show", { ...comment });
 });
 
+app.get("/comments/:id/edit", (req, res) => {
+  const { id } = req.params;
+  const comment = comments.find((c) => c.id === id);
+  res.render("edit", { comment });
+});
+
+app.patch("/comments/:id", (req, res) => {
+  const { id } = req.params;
+  const newComment = req.body.comment;
+  const foundComment = comments.find((c) => c.id === id);
+  foundComment.comment = newComment;
+  res.redirect("/comments");
+});
+
 app.post("/comments", (req, res) => {
-  comments.push(req.body);
+  const { userName, comment } = req.body;
+  comments.push({ userName, comment, id: crypto.randomUUID() });
   res.redirect("/comments");
 });
 
