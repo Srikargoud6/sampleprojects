@@ -11,20 +11,38 @@ const productSchema = new mongoose.Schema({
   name: {
     type: String,
     required: true,
-    maxlength: 15,
+    maxlength: [15, "Product name cannot exceed 15 characters"],
   },
   price: {
     type: Number,
     required: true,
-    min: 0,
+    min: [0, "Price can't be less than Zero"],
   },
   onSale: {
     type: Boolean,
     default: false,
   },
+  color: {
+    type: String,
+    enum: ["black", "white", "red"],
+  },
 });
 
+productSchema.methods.greet = function () {
+  console.log(`Hey there! I am using ${this.name} mobile.`);
+};
+
+productSchema.method.toogleOnSale = function () {
+  this.onSale = !this.onSale;
+  return this.save;
+};
+
 const mobile = mongoose.model("mobile", productSchema);
+const Mobile1 = mongoose.model("Mobile1", productSchema);
+
+// Mobile1.insertMany({ name: "iphone13", price: "80000" })
+//   .then((data) => console.log(data))
+//   .catch((err) => console.log(err));
 
 // mobile
 //   .insertMany({ name: "iphone13", price: "80000" })
@@ -47,6 +65,33 @@ const mobile = mongoose.model("mobile", productSchema);
 //   .findByIdAndDelete("66bf56ffe7875f9229d1ba59")
 //   .then((data) => console.log(data));
 
-mobile
-  .findOneAndUpdate({ name: "Google Pixel 9" }, { price: 79999 })
-  .then((data) => console.log(data));
+// mobile
+//   .findOneAndUpdate({ name: "Google Pixel 9" }, { price: 79999 })
+//   .then((data) => console.log(data));
+
+// mobile
+//   .findOneAndUpdate({ name: "Samsung S21FE" }, { onSale: true }, { new: true })
+//   .then((data) => console.log(data));
+
+// mobile
+//   .insertMany({ name: "iphone16mtyftdrsyrtre", price: -74 })
+//   .then((data) => console.log(data))
+//   .catch((err) => console.log(err));
+
+// findProduct();
+
+// const findProduct = async () => {
+//   const foundProduct = await Mobile1.findOne({ name: "iphone13" });
+//   foundProduct.greet();
+// };
+
+// findProduct();
+
+const toggleSale = async () => {
+  const foundProduct = await mobile.findOne({ name: "iphone13" });
+  console.log(foundProduct);
+  await foundProduct.toggleOnSale();
+  console.log(foundProduct);
+};
+
+toggleSale();
