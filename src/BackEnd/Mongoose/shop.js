@@ -28,14 +28,25 @@ const productSchema = new mongoose.Schema({
   },
 });
 
+productSchema.set("toObject", { virtuals: true });
+productSchema.set("toJSON", { virtuals: true });
+
 productSchema.methods.greet = function () {
   console.log(`Hey there! I am using ${this.name} mobile.`);
 };
 
-productSchema.method.toogleOnSale = function () {
+productSchema.methods.toogleOnSale = function () {
   this.onSale = !this.onSale;
   return this.save;
 };
+
+productSchema.statics.fireSale = function () {
+  return this.updateMany({}, { onSale: true, price: 10000 });
+};
+
+productSchema.virtual("phones").get(function () {
+  return `${this.name} is price at ${this.price} rupees`;
+});
 
 const mobile = mongoose.model("mobile", productSchema);
 const Mobile1 = mongoose.model("Mobile1", productSchema);
@@ -87,11 +98,17 @@ const Mobile1 = mongoose.model("Mobile1", productSchema);
 
 // findProduct();
 
-const toggleSale = async () => {
-  const foundProduct = await mobile.findOne({ name: "iphone13" });
-  console.log(foundProduct);
-  await foundProduct.toggleOnSale();
-  console.log(foundProduct);
-};
+// const toggleSale = async () => {
+//   const foundProduct = await mobile.findOne({ name: "iphone13" });
+//   console.log(foundProduct);
+//   await foundProduct.toggleOnSale();
+//   console.log(foundProduct);
+// };
 
-toggleSale();
+// toggleSale();
+
+// mobile.fireSale().then((data) => console.log(data));
+
+const iphone = mobile
+  .findOne({ name: "iphone13" })
+  .then((data) => console.log(data.phones));
