@@ -18,6 +18,12 @@ app.get("/products", async (req, res) => {
   res.render("products/index", { products });
 });
 
+app.get("/products/:id", async (req, res) => {
+  const { id } = req.params;
+  const product = await Product.findById(id);
+  res.render("products/details", { product });
+});
+
 app.listen(4000, () => {
   console.log("listening on port: 4000");
 });
