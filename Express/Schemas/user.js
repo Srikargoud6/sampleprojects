@@ -20,5 +20,18 @@ const userSchema = new mongoose.Schema({
     city: String,
   },
 });
+userSchema.methods.sayHello = function () {
+  console.log(`Hello, my name is ${this.name}`);
+};
+
+userSchema.statics.findByEmail = function (email) {
+  return this.findOne({ email });
+};
+
+userSchema.query.byAge = function (age) {
+  return this.where("age").gte(age);
+};
+
 const User = mongoose.model("User", userSchema);
+
 module.exports = User;
