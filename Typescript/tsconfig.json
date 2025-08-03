@@ -1,0 +1,13 @@
+{
+  "compilerOptions": {
+    "target": "ES6", // Output JavaScript version
+    "module": "commonjs", // Module system (Node.js)
+    "outDir": "./dist", // Output folder for compiled .js files
+    "rootDir": "./src", // Input folder for your .ts files
+    "strict": true, // Enable all strict type-checking options
+    "esModuleInterop": true, // Allow default imports from CommonJS modules
+    "forceConsistentCasingInFileNames": true // Enforce case consistency in imports
+  },
+  "include": ["src"], // Files to include
+  "exclude": ["node_modules"] // Files to ignore
+}
