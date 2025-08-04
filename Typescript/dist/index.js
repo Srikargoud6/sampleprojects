@@ -20,6 +20,13 @@ function square(num) {
 function product(num1, num2 = 5) {
     return num1 * num2;
 }
-let employee = { id: 321, name: "john" };
+let employee = {
+    id: 321,
+    name: "john",
+    greet: function () {
+        console.log(`Hi! ${this.name}`);
+    },
+};
 // console.log(mySize); // Output: 2
 console.log(employee);
+employee.greet();

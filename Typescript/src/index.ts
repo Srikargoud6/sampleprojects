@@ -14,7 +14,7 @@ enum Size {
   Medium,
   Large,
 }
-let mySize: Size = Size.Medium;
+let mySize: Size = Size.Medium; // console.log(mySize); // Output: 2
 
 function square(num: number): number {
   return num * num;
@@ -27,9 +27,16 @@ function product(num1: number, num2 = 5): number {
 let employee: {
   readonly id: number;
   name: string;
+  greet(): void;
   address?: string;
-} = { id: 321, name: "john" };
+} = {
+  id: 321,
+  name: "john",
+  greet: function () {
+    console.log(`Hi! ${this.name}`);
+  },
+};
 
-// console.log(mySize); // Output: 2
+console.log(employee); // { id: 321, name: 'john', greet: [Function: greet] }
 
-console.log(employee);
+employee.greet(); // Hi! john
