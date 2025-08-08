@@ -12,6 +12,12 @@ describe("Application ", () => {
     const bioElement = screen.getByRole("textbox", { name: "Bio" });
     expect(bioElement).toBeInTheDocument();
 
+    const headingElement = screen.getByRole("heading", { level: 1 });
+    expect(headingElement).toBeInTheDocument();
+
+    const subHeadingElement = screen.getByRole("heading", { level: 2 });
+    expect(subHeadingElement).toBeInTheDocument();
+
     const jobLocationElement = screen.getByRole("combobox");
     expect(jobLocationElement).toBeInTheDocument();
 
